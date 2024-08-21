@@ -1,7 +1,7 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 
 
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, fetchCurrentTodoDetails}) => {
     return (
         <Card sx={{
             maxWidth: 350,
@@ -12,6 +12,22 @@ const TodoItem = ({todo}) => {
             <CardContent>
                 <Typography variant="h5" color={"text.secondary"}>{todo?.todo}</Typography>
             </CardContent>
+            <CardActions>
+                <Button 
+                    onClick={() => fetchCurrentTodoDetails(todo?.id)}
+                    sx= {{
+                        backgroundColor: "#000000",
+                        color: "#fff",
+                        opacity: "0.75",
+                        "&:hover" : {
+                            opacity: "1",
+                            backgroundColor: "#000000",
+                            color: "#fff",
+                        }
+                }}>
+                    Show Details
+                </Button>
+            </CardActions>
         </Card>
     )
 
